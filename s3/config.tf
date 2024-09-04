@@ -17,5 +17,5 @@ terraform {
 
 provider "aws" {
   # Configuration options
-    profile = "SBOX-D1"
+    #profile = "SBOX-D1"
 }

@@ -21,5 +21,5 @@ terraform {
 }
 
 provider "aws" {
-    profile = "SBOX-D1"
+    #profile = "SBOX-D1"
 }
