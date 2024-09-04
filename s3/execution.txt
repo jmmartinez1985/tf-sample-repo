@@ -1,0 +1,44 @@
+#SET AWS PROFILES
+aws configure --profile=SBOX-D1
+
+export AWS_PROFILE=SBOX-D1
+
+
+#LAUNCH TERRAFORM IAC (DEV)
+
+terraform init
+
+terraform workspace new dev
+
+terraform workspace select dev
+
+terraform plan -var-file="dev.vars.tfvars" 
+
+terraform apply -var-file="dev.vars.tfvars" -auto-approve
+terraform destroy -var-file="dev.vars.tfvars" -auto-approve
+
+
+#LAUNCH TERRAFORM IAC (QA)
+
+terraform init
+
+terraform workspace new qa
+
+terraform workspace select qa
+
+terraform plan -var-file="qa.vars.tfvars" 
+
+terraform apply -var-file="qa.vars.tfvars" -auto-approve
+
+
+#LAUNCH TERRAFORM IAC (PROD)
+
+terraform init
+
+terraform workspace new prod
+
+terraform workspace select prod
+
+terraform plan -var-file="prod.vars.tfvars" 
+
+terraform apply -var-file="prod.vars.tfvars" -auto-approve
